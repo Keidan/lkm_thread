@@ -36,6 +36,14 @@ Insert/Remove the module:
      insmod ./lkm_thread.ko
      rmmod lkm_thread
 	
+	
+dmesg output:
+
+     [ 5608.383142] [LKM_THREAD] new value from thread: 1
+     [ 5609.885848] [LKM_THREAD] new value from thread: 2
+     [ 5611.398915] [LKM_THREAD] new value from thread: 3
+     [ 5612.908528] [LKM_THREAD] new value from thread: 4
+     [ 5614.426592] [LKM_THREAD] new value from thread: 5
 
 
 License (like GPL)

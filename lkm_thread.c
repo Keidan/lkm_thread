@@ -30,7 +30,7 @@
 #include <linux/delay.h>          /* Using this header for the msleep() function */
 
 static struct task_struct *task; /* The pointer to the thread task */
-static int the_value = 0; /* Simple value used in the thread callback */
+static int the_value = 0; /* Simple variable used in the thread callback */
 
 /**
  * @brief The thread callback.
@@ -40,7 +40,7 @@ static int the_value = 0; /* Simple value used in the thread callback */
 static int lkm_thread_callback(void *arg){
   while(!kthread_should_stop()){            /* Returns true when kthread_stop() or equivalent is called */
     set_current_state(TASK_RUNNING);       /* prevent inadvertent sleeps temporarily (just an example) */
-    the_value++;
+    the_value++; /* update the variable value */
     printk(KERN_INFO "[LKM_THREAD] new value from thread: %d\n", the_value);
     set_current_state(TASK_INTERRUPTIBLE); /* going to sleep but can be awoken if required */
     msleep(1000);                          /* retry in 1 second. */
